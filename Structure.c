@@ -11,7 +11,7 @@ void main(){
     scanf("%d%s%f",&emp[i].id,emp[i].name,&emp[i].salary);
    }
    for(i=1;i<=5;i++){
-    printf(" the details of emp %d\n",i);
+    printf(" \nthe details of emp %d\n",i);
     printf("%d\t %s\t %f",emp[i].id,emp[i].name,emp[i].salary);
    }
 }

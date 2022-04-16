@@ -6,7 +6,7 @@ struct book{
 };
 void main(){
     struct book *b1;
-    *b1.book_id=100;
+    b1->book_id=100;
     strcpy(b1->book_name,"c programming");
     printf("book_id=%d\t book_name=%s\n",b1->book_id,b1->book_name);
 }

@@ -1,0 +1,42 @@
+#include<stdio.h>
+#define NIL -1
+typedef struct stack{
+    int holder[5];
+    int top;
+}stack;
+int main(){
+    void initStack(stack *);
+    void push(stack*,int);
+    int pop(stack *);
+    int peep(stack *);
+    int isEmpty(stack);
+    int isFull(stack);
+    stack st;
+    int i,h;
+    initStack(&st);
+for(i=0;i<5;i++){
+    scanf("%d",&h);
+    push(&st,h);
+}
+while(!isEmpty(st)){
+    printf("%d ",pop(&st));
+}
+}
+void initStack(stack *st){
+    st->top=NIL;
+}
+int isEmpty(stack st){
+    return st.top==NIL;
+}
+int isFull(stack st){
+    return st.top==4;
+}
+void push(stack *st,int val){
+    st->holder[++st->top]=val;
+}
+int pop(stack *st){
+    return st->holder[st->top--];
+}
+int peep(stack *st){
+    return st->holder[st->top];
+}

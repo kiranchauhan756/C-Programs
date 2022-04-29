@@ -1,44 +1,67 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 
-typedef struct polynomial{
+typedef struct llkist{
     int coeff;
-    int power;
-    struct polynomial *next;
-}node;
+    char var;
+    int varDeg;
+    struct llkist *next; 
+}poly;
 
-int main(){
-    int c,p,i;
-    node *head=NULL;
-    void insert_at_beg(node **,int,int);
-    void traverse(node *,int);
-    for(int i=1;i<=4;i++){
-        printf("Enter coefficient and power of term %d\n",i);
-        scanf("%d%d",&c,&p);
-        insert_at_beg(&head,c,p);
-        
-    }
-traverse(head,c);
-    return 0;
+poly *head=NULL,*temp,*ptr;
+
+void InsertExp(poly **head,poly **temp){
+      scanf("%d %c %d",&(*temp)->coeff,&(*temp)->var,&(*temp)->varDeg);
+      (*temp)->next=*head;
+      *head=*temp;
+}
+void Traversal(poly *head,poly *temp,int term){
+ printf("The experssion is\n");
+   temp=head;
+  for(int i=1;i<=term;i++){
+   while(temp!=NULL){
+       if(temp->next!=NULL){
+       printf("%d%c^%d + ",temp->coeff,temp->var,temp->varDeg);
+       }
+       else{
+            printf("%d%c^%d ",temp->coeff,temp->var,temp->varDeg); 
+       }
+       temp=temp->next;
+   }
+  }
 }
 
-void insert_at_beg(node **head,int c,int p){
-    node *temp;
-    temp=(node *)malloc(sizeof(node));
-    temp->coeff=c;
-    temp->power=p;
-    temp->next=*head;
-    *head=temp;
+void Traversal_In_sorted(poly *head,poly *temp,poly *ptr,int term){
+ printf("\nThe experssion according to highest degree\n");
+   ptr=head;
+  for(int i=1;i<=term;i++){
+   while(ptr->next!=NULL){
+       ptr=ptr->next;
+   }
+   temp=ptr;
+   while(temp!=NULL){
+              if(temp->next!=NULL){
+       printf("%d%c^%d + ",temp->coeff,temp->var,temp->varDeg);
+       }
+       else{
+            printf("%d%c^%d ",temp->coeff,temp->var,temp->varDeg); 
+       }
+       temp=temp->next;
+   }
+  }
 }
 
 
-void traverse(node *head,int coeff ){
-    while(head!=NULL){
-         printf("%dX^%d",head->coeff,head->power);
-        if(head->coeff>=0 ){
-            if(head->next!=NULL)
-            printf("+");
-    }
-        head=head->next;
-    }
+void main(){
+  int term;
+  printf("Enter the number of terms of expression\n");
+  scanf("%d",&term);
+  for(int i=1;i<=term;i++){
+      temp=(poly*)malloc(sizeof(poly));
+       printf("Enter the coeffient,variable and degree of var of term %d\n",i);
+     InsertExp(&head,&temp);
+  }
+   Traversal(head,temp,term);
+   Traversal_In_sorted(head,temp,ptr,term);
 }

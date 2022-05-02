@@ -1,0 +1,66 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct dklist{
+    int info;
+    struct dklist *next, *prev;
+} node;
+
+int main(){
+    node *head=NULL;
+    int choice, val;
+    int mainMenu();
+    void insertAtBegin(node**, int);
+    int takeValue(const char*);
+    while(1){
+        choice = mainMenu();
+        switch(choice){
+            case 1:
+                val = takeValue("Enter any value: ");
+                insertAtBegin(&head, val);
+                break;
+            case 10:
+                printf("\n-----------------------------------------------\n");
+                transverse(head);
+                printf("\n-----------------------------------------------\n");
+                break;
+            case 11:
+                printf("Exiting...\n");
+                return;
+            default:
+                printf("You entered wrong choice..\n");
+        }
+    }
+    return 0;
+}
+
+int mainMenu(){
+    int choice;
+    printf("\nEnter Operation you want to perform: \
+            \n1. Insert node at beginning \
+            \n10. Transverse in forward manner \
+            \nYour Choice: ");
+    scanf("%d", &choice);
+    return choice;
+}
+
+int takeValue(const char *s){
+    int val;
+    printf("%s", s);
+    scanf("%d", &val);
+    return val;
+}
+
+void insertAtBegin(node **head, int val){
+    node *ptr = (node*)malloc(sizeof(node));
+    ptr->info = val;
+    ptr->prev = NULL;
+    ptr->next = *head;
+    *head = ptr;
+}
+
+void transverse(node *head){
+    if(head == NULL) return;
+    printf("%d ", head->info);
+    transverse(head->next);
+}

@@ -1,4 +1,4 @@
-//Performing various operations on linked list
+/*Performing various operations on linked list*/
 
 #include <stdio.h>
 #include <stdlib.h>

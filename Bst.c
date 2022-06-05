@@ -26,6 +26,7 @@ if(*root==NULL){
  temp->right=NULL;
  
 }
+
 struct bst* newNode(int item)
 {
     struct bst* temp1

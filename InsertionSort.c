@@ -1,4 +1,9 @@
+//Program for Insertion Sort
+
 #include<stdio.h>
+
+//best case o(n)
+//avg and worst case o(n^2)
 
 void InsertEle(int a[],int n){
     printf("Enter the elements\n");
@@ -8,7 +13,7 @@ void InsertEle(int a[],int n){
 }
 
 void InsertionSort(int a[],int n){
-    int temp,i,j;
+    int i,j,temp;
     for(i=1;i<n;i++){
         temp=a[i];
         j=i-1;

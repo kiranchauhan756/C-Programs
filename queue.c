@@ -12,16 +12,8 @@ void Insert(queue *q,int data){
      q->front=0;
      q->rear=0;
     }
-    else if(q->front!=0 && q->rear==MAX-1){
-        for(int i=q->front;i<q->rear;i++){
-            q->a[i-q->front]=q->a[i];
-            q->rear=q->rear-q->front;
-            q->front=0;
-            q->rear=q->rear+1;
-        }
-    }
         else{
-         q->rear++;//0
+         q->rear++;
         }
         q->a[q->rear]=data;
     }
@@ -34,7 +26,7 @@ int isfull(queue q){
     return 0;
 }
 int isempty(queue q){
-    if(q.front==-1 && q.rear==MAX-1){
+    if(q.front==-1 && q.rear==-1){
      return 1;
     }
     return 0;
@@ -79,9 +71,6 @@ void main(){
               case 1:
               if(isfull(q)){
              printf("Queue overloaded\n");
-              }
-              else if(isempty(q)){
-               printf("Queue underflow\n");
               }
               else{
                   printf("Enter the data to be inserted\n");

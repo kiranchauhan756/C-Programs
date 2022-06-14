@@ -133,8 +133,6 @@ void TraversePost(node *root){
     }
 }
 
-
-
   
 void main(){
     int choice,key;

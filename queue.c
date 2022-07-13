@@ -20,7 +20,7 @@ void Insert(queue *q,int data){
 
 
 int isfull(queue q){
-    if(q.front==0 && q.rear==MAX-1){
+    if( q.rear==MAX-1){
         return 1;
     }
     return 0;

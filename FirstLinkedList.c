@@ -238,8 +238,11 @@ void main()
             free(ptr);
             break;
 
-
         case 15:
+        
+        break;
+
+        case 16:
             exit(1);
             break;
 

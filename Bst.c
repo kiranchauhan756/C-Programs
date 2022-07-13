@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-typedef struct bst{
+typedef struct bst{//creating a nodd
     int info;
     struct bst *left;
     struct bst *right;
@@ -12,15 +12,17 @@ node *root=NULL,*temp;
 void Insert(node **root,int key){
  temp=(node *)malloc(sizeof(node));
 if(*root==NULL){
-    *root=temp;
-    
+    *root=temp;   
  }
+
  else if(key < (*root)->info){
-    Insert(&((*root)->left),key);//now this value become root and its left and right pkace are null
+    Insert(&((*root)->left),key);//now this value become root and its left and right place are null
  }
+
  else if(key >= (*root)->info){
      Insert(&((*root)->right),key);
  }
+ 
  temp->info=key;
  temp->left=NULL;
  temp->right=NULL;
@@ -90,7 +92,7 @@ struct bst* deleteNode(struct bst* root, int key)
         }
  
         // node with two children:
-        // Get the inorder successor
+        // Get the inorder successorl
         // (smallest in the right subtree)
         struct bst* temp = minValueNode(root->right);
  

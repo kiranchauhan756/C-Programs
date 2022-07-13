@@ -11,7 +11,11 @@ printf("Enter the data\n");
 scanf("%d",&(*temp)->info);
 (*temp)->prev=NULL;
 (*temp)->next=*head;
-(*head)->prev=*temp;
+
+if(*head!=NULL){
+    (*head)->prev=*temp;
+}
+(*head)=*temp;
 printf("Node created successfully\n");
 }
 
@@ -43,7 +47,13 @@ void Searching(node *head,node *temp){
          }
      }
 }
-
+void Reversal(node *head,node *tail){
+    tail=head;
+    while(tail!=NULL){
+        printf("%d",tail->info);
+        tail=tail->prev;
+    }
+}
 void InsertAtEnd(node **head,node **tail,node **temp){
     printf("Enter the info to be inserted\n");
     scanf("%d",&(*temp)->info);
@@ -83,6 +93,10 @@ void main(){
             case 4:
            InsertAtEnd(&head,&temp,&tail);
            break;
+          
+          case 5:
+          Reversal(head,tail);
+          break;
 
            case 9:
            exit(1);
